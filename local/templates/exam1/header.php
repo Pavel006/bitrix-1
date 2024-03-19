@@ -28,7 +28,12 @@
                 <div class="logo-block"><a href="" class="logo">Мебельный магазин</a>
                 </div>
                 <div class="main-phone-block">
-                    <a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+					<?if(date("H") >= '9' AND date("H") <= 18){?>
+                    	<a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+					<?}
+					else{?>
+						<a href="mailto:store@store.ru" class="phone">store@store.ru</a>
+					<?}?>
                     <div class="shedule">время работы с 9-00 до 18-00</div>
                 </div>
                 <div class="actions-block">
