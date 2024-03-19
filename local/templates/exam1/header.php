@@ -17,9 +17,11 @@
     <script src="<?=SITE_TEMPLATE_PATH;?>/js/scripts.js"></script>
 	<link rel="icon" type="image/vnd.microsoft.icon" href="<?=SITE_TEMPLATE_PATH;?>/img/favicon.ico">
     <link rel="shortcut icon" href="favicon.ico">
+<?$APPLICATION->ShowHead();?>
 </head>
 
 <body>
+	<?$APPLICATION->ShowPanel()?>
     <!-- wrap -->
     <div class="wrap">
         <!-- header -->
