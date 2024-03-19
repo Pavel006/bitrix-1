@@ -4,7 +4,7 @@ $aMenuLinks = Array(
 		"Анонсы", 
 		"/partneram/raspisanie-meropriyatiy", 
 		Array(), 
-		Array(), 
+		Array("TEXT"=>"это текст для пункта  \"Анонсы\""), 
 		"" 
 	),
 	Array(
