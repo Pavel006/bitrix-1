@@ -128,15 +128,17 @@
             </div>
         </nav>
         <!-- /nav -->
-        <!-- breadcrumbs -->
-        <div class="breadcrumbs-box">
-            <div class="inner-wrap">
-                <a href="">Главная</a>
-                <a href="">Мебель</a>
-                <span>Выставки и события</span>
-            </div>
-        </div>
-        <!-- /breadcrumbs -->
+		<?if($APPLICATION->GetCurPage() != "/"){?>
+			<!-- breadcrumbs -->
+			<div class="breadcrumbs-box">
+				<div class="inner-wrap">
+					<a href="">Главная</a>
+					<a href="">Мебель</a>
+					<span>Выставки и события</span>
+				</div>
+			</div>
+			<!-- /breadcrumbs -->
+		<?}?>
         <!-- page -->
         <div class="page">
             <!-- content box -->
@@ -144,3 +146,8 @@
                 <!-- content -->
                 <div class="content">
                     <div class="cnt">
+						<?if($APPLICATION->GetCurPage() != "/"){?>
+						<header>
+                            <h1><? $APPLICATION->ShowTitle(); ?></h1>
+                        </header>
+						<?}?>
