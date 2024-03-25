@@ -12,6 +12,9 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+
+<?if(count($arResult["ITEMS"]) != 0){?>
+
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
@@ -26,21 +29,27 @@ $this->setFrameMode(true);
 		<div class="review-text">
 			<div class="review-block-title">
 				<span class="review-block-name">
-					<a href="<?=$arItem["DETAIL_PAGE_URL"];?>"><?=$arItem["NAME"]?> <?=$arItem["LAST_NAME"]?></a>
+					<a title="<?=$arItem["NAME"]?> <?=$arItem["LAST_NAME"]?>" href="<?=$arItem["DETAIL_PAGE_URL"];?>"><?=$arItem["NAME"]?> <?=$arItem["LAST_NAME"]?></a>
 				</span>
-				<span class="review-block-description"><?=$arItem["DISPLAY_ACTIVE_FROM"];?> г., <?=$arItem["PROPERTIES"]["POSITION"]["VALUE"];?>, <?=$arItem["PROPERTIES"]["COMPANY"]["VALUE"];?></span>
+				<span class="review-block-description">
+					<?=$arItem["DISPLAY_ACTIVE_FROM"];?> г.
+					<?if ($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"] != ""){ echo ", " . $arItem["PROPERTIES"]["POSITION"]["VALUE"];}?>
+					<?if ($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"] != "") { echo ", " . $arItem["PROPERTIES"]["COMPANY"]["VALUE"]; }?>
+				</span>
 			</div>
-			<div class="review-text-cont">
-				<?=$arItem["PREVIEW_TEXT"];?>
-			</div>
+			<?if($arItem["PREVIEW_TEXT"] != ""){?>
+				<div class="review-text-cont">
+					<?=$arItem["PREVIEW_TEXT"];?>
+				</div>
+			<?}?>
 		</div>
 		<div class="review-img-wrap">
 			<a href="<?=$arItem["DETAIL_PAGE_URL"];?>">
 				<?if($arItem["PREVIEW_PICTURE"]){?>
-					<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"];?>" alt="img">
+				<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"];?>" alt="Картинка для анонса">
 				<?}
 				else{?>
-					<img src="<?=SITE_TEMPLATE_PATH;?>/img/rew/no_photo.jpg" alt="img">
+					<img src="<?=SITE_TEMPLATE_PATH;?>/img/rew/no_photo.jpg" alt="картинка для анонса">
 				<?}?>
 </a>
 		</div>
@@ -50,3 +59,4 @@ $this->setFrameMode(true);
 	<br /><?=$arResult["NAV_STRING"]?>
 <?endif;?>
 </div>
+<?}?>
